@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meet</title>
+  <script>
+    window.onload = function () {
+      const recognition = new window.webkitSpeechRecognition();
+      function getUrlParams(url) {
+        let urlStr = url.split("?")[1];
+        const urlSearchParams = new URLSearchParams(urlStr);
+        const result = Object.fromEntries(urlSearchParams.entries());
+        return result;
+      }
+
+      // Generate a Token by calling a method.
+      // @param 1: appID
+      // @param 2: serverSecret
+      // @param 3: Room ID
+      // @param 4: User ID
+      // @param 5: Username
+      const roomID =
+        getUrlParams(window.location.href)["roomID"] ||
+        Math.floor(Math.random() * 10000) + "";
+      const userID = Math.floor(Math.random() * 10000) + "";
+      const userName = "userName" + userID;
+      const appID = 984924014;
+      const serverSecret = "7cf738e6593fd6df85c3e3269f90d35c";
+      const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
+        appID,
+        serverSecret,
+        roomID,
+        userID,
+        userName
+      );
+
+      const zp = ZegoUIKitPrebuilt.create(kitToken);
+      zp.joinRoom({
+        container: document.querySelector("#root1"),
+        sharedLinks: [
+          {
+            name: "Personal link",
+            url:
+              window.location.protocol +
+              "//" +
+              window.location.host +
+              window.location.pathname +
+              "?roomID=" +
+              roomID,
+          },
+        ],
+        scenario: {
+          mode: ZegoUIKitPrebuilt.VideoConference,
+        },
+
+        turnOnMicrophoneWhenJoining: false,
+        turnOnCameraWhenJoining: true,
+        showMyCameraToggleButton: true,
+        showMyMicrophoneToggleButton: true,
+        showAudioVideoSettingsButton: false,
+        showScreenSharingButton: true,
+        showTextChat: true,
+        showUserList: true,
+        maxUsers: 5,
+        layout: "Auto",
+        showLayoutButton: false,
+      });
+     
+
+      // Example WebRTC code (not complete, just for illustration)
+      //    const remoteVideo = document.getElementById('remoteVideo');
+      //    const remoteVideo = document.getElementById('root');
+      //    console.log(remoteVideo)
+      //     const captionElement = document.getElementById('caption');
+
+      //     // Set up WebRTC and get remote video stream
+      //     // ...
+      // console.log(captionElement)
+      // console.log("hi")
+      //     // Example using Web Speech API for speech recognition
+      //     const recognition = new window.webkitSpeechRecognition();
+      //     recognition.onresult = (event) => {
+      //       const transcript = event.results[0][0].transcript;
+      //       captionElement.innerText = transcript;
+      //       console.log(transcript)
+      //     };
+
+      //     recognition.start();
+    };
+  </script>
+  <!-- <script>
+    // Example WebRTC code (not complete, just for illustration)
+    const remoteVideo = document.getElementById('remoteVideo');
+    const captionElement = document.getElementById('caption');
+
+    // Set up WebRTC and get remote video stream
+    // ...
+console.log("hi")
+    // Example using Web Speech API for speech recognition
+    const recognition = new window.webkitSpeechRecognition();
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      captionElement.innerText = transcript;
+    };
+
+    recognition.start();
+</script> -->
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/main.css')}}"
+    />
+  </head>
+
+  <body>
+        <div id="root1">
+            <!-- <h1>WebRTC with Captions</h1> -->
+            <!-- <video id="remoteVideo" autoplay></video> -->
+            <!-- <div id="caption" style="z-index: -1000; width: 500px;height: 500px;background-color: black;color: aliceblue;"></div> -->
+            </div>
+        </div>
+  </body>
+  <script src="https://unpkg.com/@zegocloud/zego-uikit-prebuilt/zego-uikit-prebuilt.js"></script>
+<script>
+    // document.getElementsByClassName("ji5jASszKFf2CGCmbxEh").innerHTML = "I have changed!";
+    // document.getElementsByClassName("ji5jASszKFf2CGCmbxEh").style.background = "red";
+    // console.log(  document.getElementsByClassName("ji5jASszKFf2CGCmbxEh").innerHTML)
+    // var mic=document.getElementsByClassName("QYvze2FiFrLlotTk5Iz7");
+    // console.log(mic)
+
+    // var script=document.getElementsByClassName("ji5jASszKFf2CGCmbxEh")[0];
+    //     console.log(script)
+    // mic.onclick = function(){
+    //     console.log("hiiiiiiiiiiiiiiiiiiii")
+    //     // const recognition = new window.webkitSpeechRecognition();
+    //     // var script=document.getElementsByClassName("ji5jASszKFf2CGCmbxEh")[0];
+    //     // console.log(script[0])
+    //     // recognition.onresult = (event) => {
+    //     //     const transcript = event.results[0][0].transcript;
+    //     //     // Update UI to display the caption
+    //     //     script.innerHtml+=transcript;
+    //     //     updateCaptionOnScreen(transcript);
+    //     //   };
+    
+    //     //   recognition.start();
+    //     //   console.log(recognition)
+    // };
+</script>
+</html>

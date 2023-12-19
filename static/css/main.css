@@ -1,0 +1,56 @@
+/* body{
+padding: 0;
+margin: 0;
+}
+#container{
+  
+    width: 222px;
+    height: 150px;
+    position: relative;
+    margin: 30px;
+    z-index: 29;
+    // display: block; 
+    background-color: black;
+}
+#transcript{
+    background-color: black;
+    width: 200px;
+    height: 200px;
+    z-index: 100;
+
+    margin: 30px;
+    border: 3px red solid;
+}
+#root1 {
+    width: 100vw;
+    height: 100vh;
+    /* position: absolute; */
+    /* background-color: aqua; */
+    /* margin-top: 500px; */
+    /* position: relative; 
+    border: 10px red solid;
+    /* display: none; 
+    }
+.ji5jASszKFf2CGCmbxEh {
+    width: 200px;
+    height: 150px;
+    background-color: brown;
+} */
+#root1 {
+    width: 100vw;
+    height: 100vh;
+}
+/* <video autoplay="" class="z1WvYJgksHY23EwdFNB5  _lsMxWcmJ586WoIFahdx pVo6XoSfywa4eLk9ef2S" playsinline="" src="" cameraopen="OPEN"></video> */
+.zego_model_parent .ji5jASszKFf2CGCmbxEh {
+    height: 250px;
+    background: #8d95b9;
+}
+.zego_model_parent .ji5jASszKFf2CGCmbxEh .vjwEXnTmP6jAK8LlvWL_{
+    bottom: -74px;
+}
+.zego_model_parent .ji5jASszKFf2CGCmbxEh .JtRS8dNV0vDLnpBoA6kZ {
+    position: relative;
+    bottom: -74px;
+
+}
+    
